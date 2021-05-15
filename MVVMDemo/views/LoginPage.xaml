@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVMDemo.views.LoginPage"
+             xmlns:viewMoedl="clr-namespace:MVVMDemo.viewmodels"
+             Title="Emplyee Information">
+    <ContentPage.BindingContext>
+        <viewMoedl:LoginPageViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="OrangeRed"/>
+                <Setter Property="FontSize" Value="18"/>
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="18"/>
+            </Style>
+             <Style TargetType="Button">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="BackgroundColor" Value="Blue"/>
+                <Setter Property="TextTransform" Value="None"/>
+            </Style>
+            
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Label Text="Name"/>
+            <Entry Text="{Binding UserName,Mode=TwoWay}" />
+            <Label Text="Salary"/>
+            <Entry   Keyboard="Numeric" Text="{Binding Salary,Mode=TwoWay}"/>
+           <Label    Text="Age"/>
+            <Entry  Text="{Binding Age,Mode=TwoWay}" Keyboard="Numeric"/>
+            <Button Text="Save"  Command="{Binding LoginCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

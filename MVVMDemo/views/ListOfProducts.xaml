@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:MVVMDemo.viewmodels"
+             x:Class="MVVMDemo.views.ListOfProducts"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <viewmodels:ListOfProductsViewModel/>
+    </ContentPage.BindingContext>
+   
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Label Text="{Binding Header}" FontSize="Body"/>
+            <Label Text="{Binding headerLocation}" FontSize="Body"/>
+            <Label Text="{Binding headerFullLocation}" FontSize="Body"/>
+            <Button Text="LoadData" Command="{Binding LoadData}"/>
+            <CollectionView ItemsSource="{Binding Level2MenuItems}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                        <Label Text="{Binding name}"/>
+                    </ViewCell>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
