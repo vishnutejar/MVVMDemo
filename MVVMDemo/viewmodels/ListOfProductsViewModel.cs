@@ -123,9 +123,6 @@ namespace MVVMDemo.viewmodels
             {
                 var result = httpRequestMessage.Content.ReadAsStringAsync().Result;
 
-                //  var Items = JsonConvert.DeserializeObject<Root>(content);//jsonstring to equ c# class
-                // var Items = JsonConvert.SerializeObject(new { });//c# class to jsonstring
-
                 productData = JsonConvert.DeserializeObject<Root>(result);
 
                 InItViewData();
